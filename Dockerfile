@@ -20,6 +20,7 @@ ENV HOME=/var/lib/gogs
 COPY ./root /
 
 RUN yum -y install wget epel-release && \
+    rpm --import RPM-GPG-KEY-CentOS-8 && \
     wget -O /etc/yum.repos.d/gogs.repo https://dl.packager.io/srv/gogs/gogs/main/installer/el/8.repo && \    
     yum install gogs && \
     yum -y clean all && \
