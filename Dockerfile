@@ -19,7 +19,7 @@ ENV HOME=/var/lib/gogs
 
 COPY ./root /
 
-RUN yum update && \
+RUN yum -y update && \
     yum -y install wget epel-release && \
     wget -O /etc/yum.repos.d/gogs.repo && \
     https://dl.packager.io/srv/gogs/gogs/main/installer/el/8.repo && \    
