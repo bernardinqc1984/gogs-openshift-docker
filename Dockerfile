@@ -19,11 +19,9 @@ ENV HOME=/var/lib/gogs
 
 COPY ./root /
 
-RUN yum -y update && \
-    yum -y install wget epel-release && \
-    wget -O /etc/yum.repos.d/gogs.repo && \
-    https://dl.packager.io/srv/gogs/gogs/main/installer/el/8.repo && \    
-    yum -y --setopt=tsflags=nodocs install gogs-${GOGS_VERSION} nss_wrapper gettext && \
+RUN yum -y install wget epel-release && \
+    wget -O /etc/yum.repos.d/gogs.repo https://dl.packager.io/srv/gogs/gogs/main/installer/el/8.repo && \    
+    yum install gogs && \
     yum -y clean all && \
     mkdir -p /var/lib/gogs
 
